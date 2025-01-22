@@ -91,3 +91,5 @@ jspm_packages/
 # VS Code directories
 .vscode/
 .history/
+
+dist/
