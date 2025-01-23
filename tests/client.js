@@ -1,7 +1,9 @@
 const { io } = require("socket.io-client");
 
 // Connect to the server
-const socket = io("ws     ://localhost:8080");
+const socket = io("ws://localhost:8080", {
+    transports: ['websocket']
+});
 
 // Handle connection success
 socket.on("connect", () => {
