@@ -9,8 +9,9 @@ const socket = io("ws://localhost:8080", {
 socket.on("connect", () => {
     console.log(`Connected to server with ID: ${socket.id}`);
 
-    // Send a test message to the server
-    socket.emit("livechat", "Hello, this is a test message from the client!");
+    setInterval(() => {
+        socket.emit("livechat", "Hello, this is a test message from the client!");
+    }, 3000);
 });
 
 // Handle the "welcome" event from the server
