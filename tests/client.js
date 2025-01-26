@@ -2,16 +2,13 @@ const { io } = require("socket.io-client");
 
 // Connect to the server
 const socket = io("ws://localhost:8080", {
-    transports: ['websocket']
+    transports: ['websocket'],
+    query: { room: 'room1' }
 });
 
 // Handle connection success
 socket.on("connect", () => {
     console.log(`Connected to server with ID: ${socket.id}`);
-
-    setInterval(() => {
-        socket.emit("livechat", "Hello, this is a test message from the client!");
-    }, 3000);
 });
 
 // Handle the "welcome" event from the server
