@@ -23,7 +23,7 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
             throw handleError(new MyError("Invalid password"), 401)
         }
         const token = createToken(user.email)
-        res.status(200).json(createResponse(200, "Login successful", { token }))
+        res.status(200).json(createResponse(200, "Login successful", { token, email: user.email }))
     } catch (err) {
         next(err)
     }

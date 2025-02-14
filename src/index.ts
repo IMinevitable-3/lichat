@@ -8,7 +8,7 @@ import { createResponse } from './types/response.type';
 import authRouter from './routes/auth.route';
 import mongoose from 'mongoose';
 import userRouter from './routes/user.route';
-
+import cors from "cors"
 const app: Application = express();
 const port: number = PORT;
 
@@ -23,6 +23,7 @@ mongoose.connect(MONGO_URI)
     });
 //GLOBAL MIDDLEWARES
 app.use(express.json());
+app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 //ROUTES
 const router: Router = express.Router();
